@@ -1,13 +1,16 @@
-import React, {  Component } from 'react'
+import React from 'react'
 
 class Table extends React.Component {
     render() {
-        const { characterData } = this.props
+        const { characterData, removeCharacter } = this.props
         const rows = characterData.map((row, index) => {
             return (
                 <tr key={index}>
                     <td>{row.name}</td>
                     <td>{row.job}</td>
+                    <td>
+                        <button onClick={() => removeCharacter(index)}>Delete</button>
+                    </td>
                 </tr>
             )
         })
